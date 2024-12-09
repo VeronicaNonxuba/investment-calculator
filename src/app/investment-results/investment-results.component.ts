@@ -1,7 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { InvestmentService } from '../investment.service';
-import { InvestmentOutput } from '../investment-output.model';
 
 @Component({
   selector: 'app-investment-results',
@@ -13,13 +12,8 @@ import { InvestmentOutput } from '../investment-output.model';
 export class InvestmentResultsComponent { 
   private _service = inject(InvestmentService);
 
-  get results(){
-    return this._service.resultsData();  
-  }
-
-  get isCalcDone(){
-   return this._service.isCalculationDone();
-  }
+  results = computed(() => this._service.resultsData());  
+  isCalcDone = computed(() => this._service.isCalculationDone()); 
   
 }
 
