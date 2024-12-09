@@ -7,6 +7,7 @@ import { InvestmentOutput } from './investment-output.model';
 })
 export class InvestmentService {
     resultsData = signal<InvestmentOutput[] | undefined>(undefined);
+    isCalculationDone = signal<boolean>(false);
 
     calculateInvestmentResults(data: InvestmentInput) 
     {
@@ -29,6 +30,7 @@ export class InvestmentService {
         });
       }
       this.resultsData.set(annualData);
+      this.isCalculationDone.set(true);
     }
 
 }

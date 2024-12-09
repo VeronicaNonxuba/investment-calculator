@@ -17,12 +17,12 @@ export class CalculatorComponent {
     expectedReturn : 5,
     duration : 10
   });
-
-
- private _service = inject(InvestmentService);
+  private _service = inject(InvestmentService);
+  
 
   onSubmit(){ 
-    this._service.calculateInvestmentResults(this.data());
+    this._service.calculateInvestmentResults(this.data());    
+    
     this.resetFigures();
   }
 
